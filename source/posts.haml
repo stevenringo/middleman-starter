@@ -1,0 +1,9 @@
+---
+title: Posts
+---
+
+%ul.articles-list
+  - blog.articles.each_with_index do |article, i|
+    %li.article-item
+      %time.article-date= article.date.strftime('%e %B %Y')
+      %a.article-title{href: article.url}= "#{article.title}"

@@ -1,0 +1,16 @@
+- wrap_layout :layout do
+  %section.main
+    %hr.separator
+    %header.header
+      %h1.title
+        = link_to current_article.title, current_article.url
+      %time.subtitle= current_article.date.strftime('%e %B %Y')
+    %article.content
+      = current_article.body
+    %footer.pager
+      - if current_article.next_article
+        .pager-next
+          = link_to(current_article.next_article.title, current_article.next_article)
+      - if current_article.previous_article
+        .pager-prev
+          = link_to(current_article.previous_article.title, current_article.previous_article)

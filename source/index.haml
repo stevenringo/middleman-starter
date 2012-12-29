@@ -1,0 +1,23 @@
+---
+layout: layout
+title: Home
+pageable: true
+---
+
+- page_articles.each do |article|
+  %section.main
+    %hr.separator
+    %header.header
+      %h1.title
+        = link_to article.title, article
+      %time.subtitle= article.date.strftime('%e %B %Y')
+    %article.content
+      = article.summary
+- if paginate
+  %footer.pager
+    - if prev_page
+      .pager-next
+        = link_to 'Newer', prev_page
+    - if next_page
+      .pager-prev
+        = link_to 'Older', next_page

@@ -1,0 +1,31 @@
+!!!5
+%html
+  %head
+    %meta{charset: "utf-8"}
+    %meta{content: "width=device-width", name: "viewport"}
+    %meta{content: "yes", name: "apple-mobile-web-app-capable"}
+    %title= data.page.title || "Simple "
+    = stylesheet_link_tag "style", media: :all
+    = javascript_include_tag "scripts"
+  %body
+    %header.banner
+      %h1.banner-title
+        = link_to "Site Title", "/"
+      .banner-subtitle
+        by Someone
+    %nav.nav
+      %ul.nav-list
+        %li.nav-item.posts
+          = link_to 'Posts', '/posts.html'
+          &nbsp;|&nbsp;
+        %li.nav-item.talks
+          = link_to 'Talks', '/talks.html'
+          &nbsp;|&nbsp;
+        %li.nav-item.about
+          = link_to 'About', '/about.html'
+    = yield
+    %footer.footer
+      .footer-container
+        .footer-text
+          Made with love in Sydney Australia
+    = partial "tracking"

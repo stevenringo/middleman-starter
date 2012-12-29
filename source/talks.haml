@@ -1,0 +1,9 @@
+---
+title: Talks
+---
+
+%ul.articles-list
+  - current_page.children.each { |p| p.add_metadata(parsed_date: Date.parse(p.data.date)) }.sort_by { |p| p.metadata[:parsed_date] }.reverse_each do |page|
+    %li.article-item
+      %time.article-date= page.metadata[:parsed_date].strftime('%e %B %Y')
+      = link_to page.data.title, page, class: "article-title"

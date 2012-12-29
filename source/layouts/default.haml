@@ -1,0 +1,14 @@
+- wrap_layout :layout do
+  %section.main
+    %hr.separator
+    %header.header
+      - if data.page.title
+        %h1.title{class: data.page.title_class}
+          = data.page.title
+      .subtitle= data.page.subtitle
+    %article.content
+      = yield
+  - if current_page.parent.data.title == "Talks"
+    %footer.pager
+      .pager-prev
+        = link_to("Back to list", current_page.parent)
